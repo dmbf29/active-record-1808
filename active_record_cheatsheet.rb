@@ -1,12 +1,20 @@
+# Create a new instance
+# 1
+restaurant = Restaurant.new(name: 'Sukiya')
+restaurant.save
+# 2 -> Direct to DB
+Restaurant.create(name: 'Sukiya')
+
 # Get all records
 Restaurant.all
 
-# all attributes as attr_accessor
+# Reader
 instance.name
 instance.address
 instance.rating
-instance.name = 'name'
-instance.address = '123 123'
+# Writer
+instance.name = 'New name'
+instance.address = 'New Address'
 instance.rating = 3
 
 # Save
@@ -39,3 +47,4 @@ Restaurant.last
 
 # Write SQL in a query
 Restaurant.where('address = ?', 'Meguro')
+Restaurant.where('address LIKE ?', '%m%')
